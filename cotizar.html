@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cotizar · MT Catering</title>
+  <meta name="description" content="Cotiza el catering de tu empresa con MT Catering: almuerzos para empleados, coffee break, desayunos de trabajo y eventos corporativos.">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a class="sr-only" href="#cotizar-form">Saltar al formulario</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html" aria-label="MT Catering, inicio">
+      <img src="img/logo-mt-catering.png" alt="MT Catering" width="900" height="640">
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a class="link-ul" href="index.html#servicios">Servicios</a>
+      <a class="link-ul" href="index.html#como-funciona">Cómo funciona</a>
+      <a class="link-ul" href="index.html#galeria">Galería</a>
+      <a class="link-ul" href="index.html#contacto">Contacto</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn-outline" data-mt-wa href="#" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>WhatsApp</a>
+      <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-movil">
+        <svg class="icon i-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h16M4 15h16"/></svg>
+        <svg class="icon i-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="menu-movil" aria-label="Menú">
+  <a class="menu-link" href="index.html">Inicio <span>01</span></a>
+  <a class="menu-link" href="index.html#servicios">Servicios <span>02</span></a>
+  <a class="menu-link" href="index.html#galeria">Galería <span>03</span></a>
+  <a class="menu-link" href="index.html#contacto">Contacto <span>04</span></a>
+  <div class="menu-foot">
+    <span data-mt="telefono"></span>
+    <span data-mt="correo"></span>
+  </div>
+</nav>
+
+<main class="quote">
+
+  <aside class="quote-aside" aria-label="Resumen de tu solicitud">
+    <div class="quote-photo" id="quote-photo" role="img" aria-label="Buffet con bandejas de plata" style="background-image: url('img/fotos/buffet.jpg')"></div>
+    <div class="panel">
+      <div class="summary">
+        <p class="eyebrow eyebrow--light">Tu solicitud</p>
+        <dl id="resumen"></dl>
+      </div>
+      <div class="estimate" id="estimado" hidden>
+        <p class="eyebrow eyebrow--light" style="margin-bottom: 8px">Estimado referencial</p>
+        <div id="estimado-cuerpo"></div>
+        <p style="font-size: 13px; color: #D9D9D6">El precio final se confirma en tu propuesta.</p>
+      </div>
+      <p class="quote-help">¿Prefieres hablar con alguien? <a class="link-ul" data-mt-wa href="#" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>.</p>
+    </div>
+  </aside>
+
+  <section class="quote-main" aria-labelledby="titulo-paso">
+    <div id="progreso-wrap">
+      <div class="progress-top">
+        <p class="eyebrow" style="margin: 0">Cotización · paso <span id="paso-num">01</span> / 04</p>
+        <ol class="step-names" aria-hidden="true">
+          <li data-step-name="1" class="is-current">Servicio</li>
+          <li data-step-name="2">Fecha y personas</li>
+          <li data-step-name="3">Modalidad</li>
+          <li data-step-name="4">Contacto</li>
+        </ol>
+      </div>
+      <div class="progress" aria-hidden="true"><span id="barra"></span></div>
+    </div>
+
+    <form id="cotizar-form" novalidate>
+      <!-- Paso 1 -->
+      <div class="step is-active" data-step="1">
+        <h1 id="titulo-paso">¿Qué necesita <em>tu empresa?</em></h1>
+        <p class="lead">Elige el tipo de servicio que quieres cotizar.</p>
+        <fieldset>
+          <legend class="sr-only">Tipo de servicio</legend>
+          <div class="tiles" data-group="servicio">
+            <button class="tile" type="button" data-value="almuerzos" aria-pressed="false"><span class="t">Almuerzos para el equipo</span><span class="d">Servicio diario o semanal</span></button>
+            <button class="tile" type="button" data-value="coffee" aria-pressed="false"><span class="t">Coffee break</span><span class="d">Reuniones y capacitaciones</span></button>
+            <button class="tile" type="button" data-value="desayuno" aria-pressed="false"><span class="t">Desayuno de trabajo</span><span class="d">Juntas, comités y clientes</span></button>
+            <button class="tile" type="button" data-value="evento" aria-pressed="false"><span class="t">Evento corporativo</span><span class="d">Lanzamientos, convenciones, fin de año</span></button>
+            <button class="tile" type="button" data-value="refrigerios" aria-pressed="false"><span class="t">Refrigerios</span><span class="d">Jornadas largas y actividades internas</span></button>
+            <button class="tile" type="button" data-value="otro" aria-pressed="false"><span class="t">Otro</span><span class="d">Cuéntanos en el último paso</span></button>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- Paso 2 -->
+      <div class="step" data-step="2">
+        <h2>¿Cuándo y para <em>cuántas personas?</em></h2>
+        <p class="lead">Si es un servicio recurrente, indícanos la frecuencia.</p>
+        <fieldset style="margin-bottom: 36px">
+          <legend>Frecuencia</legend>
+          <div class="chips" data-group="frecuencia">
+            <button class="chip" type="button" data-value="Una sola vez" aria-pressed="true">Una sola vez</button>
+            <button class="chip" type="button" data-value="Semanal" aria-pressed="false">Semanal</button>
+            <button class="chip" type="button" data-value="Diario (lunes a viernes)" aria-pressed="false">Diario (lun a vie)</button>
+            <button class="chip" type="button" data-value="Mensual" aria-pressed="false">Mensual</button>
+          </div>
+        </fieldset>
+        <div class="fields">
+          <div class="field">
+            <label for="f-fecha">Fecha de inicio</label>
+            <input class="fld" id="f-fecha" name="fecha" type="date">
+          </div>
+          <div class="field">
+            <label for="f-horario">Horario</label>
+            <select class="fld" id="f-horario" name="horario">
+              <option value="">Selecciona</option>
+              <option>Desayuno</option>
+              <option>Media mañana</option>
+              <option>Almuerzo</option>
+              <option>Tarde</option>
+              <option>Noche o evento</option>
+            </select>
+          </div>
+          <div class="field field--full">
+            <label for="f-sede">Sede o dirección</label>
+            <input class="fld" id="f-sede" name="sede" type="text" placeholder="Dirección de la oficina, planta o lugar del evento" autocomplete="street-address">
+          </div>
+        </div>
+        <div class="people">
+          <div class="people-top">
+            <label for="f-personas" class="eyebrow" style="margin: 0">Personas por servicio</label>
+            <output class="people-num" id="personas-num" for="f-personas">40</output>
+          </div>
+          <input id="f-personas" name="personas" type="range" min="10" max="500" step="5" value="40">
+          <div class="people-scale"><span>10</span><span>500 o más</span></div>
+        </div>
+      </div>
+
+      <!-- Paso 3 -->
+      <div class="step" data-step="3">
+        <h2>¿Cómo lo <em>servimos?</em></h2>
+        <p class="lead">Elige la modalidad y suma los extras que necesites.</p>
+        <fieldset>
+          <legend class="sr-only">Modalidad</legend>
+          <div class="tiles" data-group="modalidad">
+            <button class="tile" type="button" data-value="Box lunch" aria-pressed="false"><span class="t">Box lunch</span><span class="d">Comida individual empacada y entregada en tu oficina.</span></button>
+            <button class="tile" type="button" data-value="Buffet" aria-pressed="false"><span class="t">Buffet</span><span class="d">Montaje en tu sede; cada persona se sirve.</span></button>
+            <button class="tile" type="button" data-value="Menú servido" aria-pressed="false"><span class="t">Menú servido</span><span class="d">Entrada, plato fuerte y postre servidos a la mesa.</span></button>
+            <button class="tile" type="button" data-value="Estaciones" aria-pressed="false"><span class="t">Estaciones</span><span class="d">Islas temáticas para eventos y lanzamientos.</span></button>
+          </div>
+        </fieldset>
+        <fieldset style="margin-top: 44px">
+          <legend>Extras · opcional</legend>
+          <div class="chips" data-group="extras" data-multi="true">
+            <button class="chip" type="button" data-value="Meseros" aria-pressed="false">Meseros</button>
+            <button class="chip" type="button" data-value="Café y bebidas" aria-pressed="false">Café y bebidas</button>
+            <button class="chip" type="button" data-value="Menaje y mantelería" aria-pressed="false">Menaje y mantelería</button>
+            <button class="chip" type="button" data-value="Postres" aria-pressed="false">Postres</button>
+            <button class="chip" type="button" data-value="Montaje y decoración" aria-pressed="false">Montaje y decoración</button>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- Paso 4 -->
+      <div class="step" data-step="4">
+        <h2>¿A quién le enviamos <em>la propuesta?</em></h2>
+        <p class="lead">Usaremos estos datos solo para responder tu cotización.</p>
+        <div class="fields">
+          <div class="field">
+            <label for="f-nombre">Nombre completo *</label>
+            <input class="fld" id="f-nombre" name="nombre" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-empresa">Empresa *</label>
+            <input class="fld" id="f-empresa" name="empresa" type="text" autocomplete="organization" required>
+          </div>
+          <div class="field">
+            <label for="f-correo">Correo *</label>
+            <input class="fld" id="f-correo" name="correo" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="f-telefono">Teléfono o WhatsApp *</label>
+            <input class="fld" id="f-telefono" name="telefono" type="tel" autocomplete="tel" required>
+          </div>
+          <div class="field field--full">
+            <label for="f-mensaje">¿Algo más? · opcional</label>
+            <textarea class="fld" id="f-mensaje" name="mensaje" rows="3" placeholder="Restricciones alimentarias, presupuesto por persona, si necesitas factura…"></textarea>
+          </div>
+        </div>
+        <label class="check">
+          <input type="checkbox" id="f-acepta" name="acepta">
+          <span>Acepto que MT Catering use estos datos para responder mi cotización.</span>
+        </label>
+        <div class="hp" aria-hidden="true"><label>No llenar <input type="checkbox" name="botcheck" id="f-botcheck" tabindex="-1"></label></div>
+      </div>
+
+      <div class="form-nav" id="form-nav">
+        <button class="btn-back" type="button" id="btn-atras" hidden>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Atrás</button>
+        <div class="right">
+          <span class="hint" id="hint" aria-live="polite"></span>
+          <button class="btn btn-dark" type="button" id="btn-siguiente">Continuar
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <button class="btn btn-primary" type="submit" id="btn-enviar" hidden>Enviar cotización
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <p class="form-error" id="form-error" role="alert"></p>
+    </form>
+
+    <div class="done" id="listo" tabindex="-1">
+      <span class="check-badge" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+      <h1>Gracias, <em id="listo-nombre"></em></h1>
+      <p id="listo-texto"></p>
+      <p id="listo-cuenta" style="font-size: 15px"></p>
+      <div class="actions">
+        <a class="btn btn-primary" id="listo-wa" href="#">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>Ir a WhatsApp ahora</a>
+        <button class="btn btn-outline" type="button" id="listo-quedarme">Quedarme aquí</button>
+        <a class="link-ul" href="index.html" style="font-weight: 600; margin-left: 8px">Volver al inicio</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script src="js/cotizar.js"></script>
+</body>
+</html>
