@@ -49,6 +49,20 @@ Abre `index.html` con doble clic para verla. El envío al correo conviene probar
 
 Cada vez que cambies algo, vuelve a arrastrar la carpeta.
 
+## Galería de eventos (subir fotos de tus eventos)
+Cada evento es una **carpeta** dentro de `eventos/`, con la fecha y el nombre, por ejemplo `2026-11-15 Almuerzo Banco Popular`, y sus fotos adentro.
+
+1. Crea la carpeta en tu computadora y mete las fotos (como salen del celular).
+2. Entra a <https://github.com/Cristhian020/mt-catering/upload/main/eventos> y **arrastra la carpeta completa**.
+3. Pulsa **Commit changes**.
+
+En 2 o 3 minutos el evento aparece en la sección **Galería** de la web: el más reciente sale primero y en grande, y al tocarlo se abren todas sus fotos. Las fotos se achican solas para que la web cargue rápido. Instrucciones completas en [eventos/LEEME.md](eventos/LEEME.md).
+
+Mientras no haya ningún evento, la galería muestra las fotos de muestra.
+
+### Cómo se publica
+Cada vez que se sube algo a GitHub, el proceso de `.github/workflows/publicar.yml` ejecuta `scripts/construir.mjs`, que prepara las fotos y publica la web en GitHub Pages. Puedes ver el progreso en la pestaña **Actions** del repositorio.
+
 ## Fotos
 Las fotos de `img/fotos/` son de **Unsplash** (licencia gratuita, se pueden usar en webs comerciales) y sirven de referencia. Lo ideal es cambiarlas por fotos de tus propios platos y servicios **usando el mismo nombre de archivo**, así no hay que tocar el código. Tamaño recomendado: unos 1600 px de ancho y menos de 400 KB.
 

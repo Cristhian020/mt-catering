@@ -1,0 +1,55 @@
+# Publica la web en GitHub Pages cada vez que se sube algo a la rama main
+# (por ejemplo, fotos nuevas en la carpeta eventos/).
+name: Publicar web
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  construir:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el proyecto
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Instalar ImageMagick (para achicar fotos)
+        run: |
+          if ! command -v convert >/dev/null && ! command -v magick >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq imagemagick
+          fi
+
+      - name: Preparar la web y la galería de eventos
+        run: node scripts/construir.mjs
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Subir la web
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  publicar:
+    needs: construir
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

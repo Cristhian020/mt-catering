@@ -196,16 +196,21 @@
       <div class="section-head" data-anim="up">
         <div>
           <p class="eyebrow">Galería</p>
-          <h2 class="h-display">Nuestro <em>trabajo</em></h2>
+          <h2 class="h-display" id="galeria-titulo">Nuestro <em>trabajo</em></h2>
         </div>
-        <div class="filters" role="group" aria-label="Filtrar galería">
+        <p id="galeria-sub" class="lead" hidden>Toca un evento para ver todas sus fotos.</p>
+        <div class="filters" id="galeria-filtros" role="group" aria-label="Filtrar galería">
           <button class="filter" type="button" data-filter="todos" aria-pressed="true">Todos</button>
           <button class="filter" type="button" data-filter="almuerzos" aria-pressed="false">Almuerzos</button>
           <button class="filter" type="button" data-filter="coffee" aria-pressed="false">Coffee break</button>
           <button class="filter" type="button" data-filter="eventos" aria-pressed="false">Eventos</button>
         </div>
       </div>
-      <div class="gallery-grid">
+      <div class="events-grid" id="eventos" hidden></div>
+      <div class="events-more" id="mas-eventos-wrap" hidden>
+        <button class="btn btn-outline" type="button" id="mas-eventos">Ver más eventos</button>
+      </div>
+      <div class="gallery-grid" id="galeria-muestra">
         <a class="gallery-item tall glightbox" data-cat="almuerzos" data-gallery="mt" href="img/fotos/almuerzos.jpg" data-title="Almuerzos empacados">
           <img src="img/fotos/almuerzos.jpg" alt="Almuerzos empacados en recipientes" loading="lazy"><span class="tag">Almuerzos</span></a>
         <a class="gallery-item glightbox" data-cat="coffee" data-gallery="mt" href="img/fotos/coffee-break.jpg" data-title="Coffee break">
