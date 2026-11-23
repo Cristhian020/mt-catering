@@ -258,6 +258,38 @@ button { font: inherit; }
 .feature h3 { margin: 12px 0 6px; font-size: 17px; }
 .feature p { margin: 0; color: var(--muted); font-size: 15px; }
 
+/* ---------- Nosotros (foto del equipo + valores) ---------- */
+.about { padding: 120px 0 112px; }
+.about-top { display: flex; flex-wrap: wrap; gap: 56px 80px; align-items: center; }
+.about-photo { flex: 1 1 340px; max-width: 420px; position: relative; }
+.about-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 8px; }
+.about-badge {
+  position: absolute; right: -28px; bottom: 36px; max-width: 200px;
+  background: var(--ink); color: var(--paper); border-radius: 12px; padding: 16px 20px;
+  box-shadow: 0 20px 40px -18px rgba(0,0,0,.55);
+}
+.about-badge strong { display: block; font-family: var(--serif); font-weight: 400; font-size: 40px; line-height: 1; color: #FF8A5C; }
+.about-badge span { font-size: 13px; color: var(--on-dark-muted); line-height: 1.35; display: block; margin-top: 4px; }
+.about-text { flex: 1 1 440px; min-width: 0; }
+.about-text .h-display { margin: 0 0 20px; }
+.about-text .lead { margin: 0 0 26px; max-width: 580px; }
+.about-checks { list-style: none; margin: 0 0 34px; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 28px; }
+.about-checks li { display: flex; gap: 10px; align-items: flex-start; font-weight: 600; font-size: 15px; line-height: 1.4; }
+.about-checks .icon { color: var(--orange); stroke-width: 2.4; margin-top: 1px; }
+.about-values { margin-top: 88px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.value-card {
+  border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--paper);
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+}
+.value-card:hover { transform: translateY(-4px); box-shadow: 0 26px 44px -30px rgba(0,0,0,.4); }
+.value-card .img { overflow: hidden; }
+.value-card img { width: 100%; aspect-ratio: 16 / 11; object-fit: cover; transition: transform 1.4s var(--ease); }
+.value-card:hover img { transform: scale(1.05); }
+.value-card .b { padding: 22px 24px 26px; }
+.value-card .num { font-size: 12px; font-weight: 700; letter-spacing: .14em; color: var(--blue); }
+.value-card h3 { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.1; margin: 6px 0 8px; }
+.value-card p { margin: 0; color: var(--muted); font-size: 15px; }
+
 /* ---------- Servicios ---------- */
 .services { background: var(--ink); color: var(--on-dark); padding: 112px 0; }
 .section-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px 32px; margin-bottom: 48px; }
@@ -508,6 +540,8 @@ textarea.fld { resize: vertical; min-height: 96px; }
   .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 200px; }
   .events-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 260px; }
   .svc-strip .container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .about-values { grid-template-columns: minmax(0, 1fr); max-width: 560px; }
+  .about-badge { right: 12px; }
   .svc-item:nth-child(odd) { border-left: 0; padding-left: 0; }
   .svc-item:nth-child(n+3) { border-top: 1px solid var(--line); }
   .svc-item:nth-child(2) { padding-right: 0; }
@@ -530,6 +564,12 @@ textarea.fld { resize: vertical; min-height: 96px; }
   .svc-text span { font-size: 13px; }
   .svc-arrow { display: none; }
   .intro { padding: 88px 0 72px; }
+  .about { padding: 80px 0; }
+  .about-photo { max-width: none; flex-basis: 100%; }
+  .about-checks { grid-template-columns: minmax(0, 1fr); }
+  .about-values { margin-top: 56px; }
+  .about-badge { bottom: 16px; padding: 12px 16px; }
+  .about-badge strong { font-size: 32px; }
   .photo-pill { width: 84px; height: 38px; }
   .services, .gallery, .process, .cta { padding: 80px 0; }
   .card { height: 400px; flex-basis: 100%; }
