@@ -12,13 +12,13 @@ window.MT_CONFIG = {
 
   // 2) Número de WhatsApp al que llegan los clientes.
   //    Con código de país, SIN +, espacios ni guiones. Ej.: República Dominicana 1 + 809 + número → '18095551234'
-  whatsapp: '1809XXXXXXX',
+  whatsapp: '18097696919',
 
   // 3) Datos de contacto que se muestran en la web.
-  telefono: '+1 (809) XXX-XXXX',
-  correo: 'correo@mtcatering.com',
-  direccion: 'Dirección, Ciudad',
-  horario: 'Lunes a viernes · 7:00 a. m. – 6:00 p. m.',
+  telefono: '+1 (809) 769-6919',
+  correo: 'solicitudes@mtorres.do',
+  direccion: 'La Gran Cañada No. 14, Jardines del Norte, Santo Domingo',
+  horario: 'Lunes a sábado · 7:00 a. m. – 5:00 p. m.',
 
   // 4) Redes sociales (deja '' si no tienes alguna y no se mostrará).
   instagram: '',

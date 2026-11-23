@@ -22,6 +22,9 @@
   document.querySelectorAll('[data-mt-mail]').forEach(function (el) {
     if (cfg.correo) el.setAttribute('href', 'mailto:' + cfg.correo);
   });
+  document.querySelectorAll('[data-mt-maps]').forEach(function (el) {
+    if (cfg.direccion) el.setAttribute('href', 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(cfg.direccion + ', República Dominicana'));
+  });
   var anySocial = false;
   document.querySelectorAll('[data-mt-social]').forEach(function (li) {
     var url = cfg[li.getAttribute('data-mt-social')];

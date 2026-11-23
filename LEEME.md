@@ -64,7 +64,7 @@ Mientras no haya ningún evento, la galería muestra las fotos de muestra.
 Cada vez que se sube algo a GitHub, el proceso de `.github/workflows/publicar.yml` ejecuta `scripts/construir.mjs`, que prepara las fotos y publica la web en GitHub Pages. Puedes ver el progreso en la pestaña **Actions** del repositorio.
 
 ## Fotos
-Las fotos de `img/fotos/` son de **Unsplash** (licencia gratuita, se pueden usar en webs comerciales) y sirven de referencia. Lo ideal es cambiarlas por fotos de tus propios platos y servicios **usando el mismo nombre de archivo**, así no hay que tocar el código. Tamaño recomendado: unos 1600 px de ancho y menos de 400 KB.
+Las fotos de `img/fotos/` son de **Unsplash** y **Pexels** (licencias gratuitas, se pueden usar en webs comerciales; las de las tarjetas de servicios son `servicio-*.jpg`, de Pexels) y sirven de referencia. Lo ideal es cambiarlas por fotos de tus propios platos y servicios **usando el mismo nombre de archivo**, así no hay que tocar el código. Tamaño recomendado: unos 1600 px de ancho y menos de 400 KB.
 
 ## Herramientas que usa
 - **GSAP** (animaciones al cargar y al hacer scroll)

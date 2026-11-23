@@ -9,10 +9,10 @@
   if (!form) return;
 
   var SERVICIOS = {
-    almuerzos:   { t: 'Almuerzos para el equipo', foto: 'img/fotos/almuerzos.jpg',      alt: 'Almuerzos en recipientes individuales' },
-    coffee:      { t: 'Coffee break',             foto: 'img/fotos/coffee-break.jpg',   alt: 'Capuchino con croissants' },
-    desayuno:    { t: 'Desayuno de trabajo',      foto: 'img/fotos/desayuno.jpg',       alt: 'Mesa de desayuno' },
-    evento:      { t: 'Evento corporativo',       foto: 'img/fotos/eventos.jpg',        alt: 'Barra de pasabocas' },
+    almuerzos:   { t: 'Almuerzos para el equipo', foto: 'img/fotos/servicio-almuerzos.jpg', alt: 'Bandejas de buffet con carne guisada y arroz' },
+    coffee:      { t: 'Coffee break',             foto: 'img/fotos/servicio-coffee.jpg',    alt: 'Estación de coffee break con termos de café' },
+    desayuno:    { t: 'Desayuno de trabajo',      foto: 'img/fotos/servicio-desayunos.jpg', alt: 'Desayuno de trabajo con panes y jugo' },
+    evento:      { t: 'Evento corporativo',       foto: 'img/fotos/servicio-eventos.jpg',   alt: 'Ejecutivos sirviéndose en un buffet' },
     refrigerios: { t: 'Refrigerios',              foto: 'img/fotos/ensaladas.jpg',      alt: 'Mesa de ensaladas' },
     otro:        { t: 'Otro',                     foto: 'img/fotos/buffet-oficina.jpg', alt: 'Personas sirviéndose en un buffet' }
   };
