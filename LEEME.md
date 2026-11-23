@@ -35,7 +35,20 @@ Ejemplo para República Dominicana: `'18095551234'`.
 ### 3. Tus datos de contacto
 En el mismo archivo cambia `telefono`, `correo`, `direccion`, `horario` y, si tienes, los enlaces de `instagram`, `facebook` y `linkedin` (los que dejes vacíos no se muestran).
 
-### 4. (Opcional) Precio estimado
+### 4. Aviso a tu WhatsApp si una cotización no llega al correo
+Si una cotización no se puede enviar al correo (por ejemplo, porque se llegó al límite de **250 al mes** del plan gratis de Web3Forms), la web te manda **un mensaje de WhatsApp a tu número** con todos los datos del cliente, para que no pierdas ninguna y lleves el control. Usa **CallMeBot**, que es gratis.
+
+Para activarlo (una sola vez, desde tu celular con el WhatsApp del 809-769-6919):
+1. Entra a <https://www.callmebot.com/blog/free-api-whatsapp-messages/> y copia el **número del bot** que aparece ahí (cambia de vez en cuando).
+2. Guarda ese número en los contactos de tu celular (por ejemplo, como «CallMeBot»).
+3. Escríbele por WhatsApp exactamente: `I allow callmebot to send me messages`
+4. En unos minutos te responde con tu **apikey** (un número). Si no llega en 2 minutos, inténtalo de nuevo al día siguiente.
+5. Pega esa apikey en `js/config.js`, en `avisoApiKey`, por ejemplo: `avisoApiKey: '1234567',`
+
+El mensaje que te llega empieza con «⚠️ Web MT Catering: una cotización NO llegó al correo», dice el motivo y trae empresa, nombre, teléfono, correo y lo que pidió el cliente.
+Además, el WhatsApp que el cliente te envía en ese caso empieza con «⚠️ (Esta solicitud no llegó al correo de la empresa.)».
+
+### 5. (Opcional) Precio estimado
 Si quieres que el formulario muestre un rango de precio aproximado, cambia `mostrarEstimado` a `true` y pon tu precio base por persona en `tarifaBase`. Mientras no tengas tarifas definidas, déjalo en `false`.
 
 ## Ver la web en tu computadora

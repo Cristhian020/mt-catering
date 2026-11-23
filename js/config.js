@@ -25,7 +25,13 @@ window.MT_CONFIG = {
   facebook: '',
   linkedin: '',
 
-  // 5) Precio estimado en el formulario de cotizar.
+  // 5) Aviso a TU WhatsApp cuando una cotización NO llegue al correo
+  //    (por ejemplo, si se llegó al límite de 250 envíos al mes de Web3Forms).
+  //    Usa CallMeBot (gratis). Los pasos para conseguir la clave están en LEEME.md.
+  //    Pega aquí la "apikey" que te mande CallMeBot. Si lo dejas vacío, no se envía aviso.
+  avisoApiKey: '',
+
+  // 6) Precio estimado en el formulario de cotizar.
   //    Déjalo en false hasta tener tus tarifas reales. Si lo activas (true),
   //    el formulario muestra un rango aproximado usando estos valores por persona.
   mostrarEstimado: false,

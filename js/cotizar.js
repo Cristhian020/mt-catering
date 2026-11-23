@@ -210,6 +210,32 @@
   btnSig.addEventListener('click', function () { if (!faltaEnPaso(state.paso)) irA(state.paso + 1); });
   btnAtras.addEventListener('click', function () { irA(Math.max(1, state.paso - 1)); });
 
+  /* ---------- Aviso al WhatsApp de la empresa si el correo falla (CallMeBot) ---------- */
+  function avisarEmpresa(d, motivo) {
+    var key = String(cfg.avisoApiKey || '').trim();
+    var num = String(cfg.whatsapp || '').replace(/\D/g, '');
+    if (!key || !num) return;
+    var limite = /limit|quota|exceed|plan/i.test(motivo || '');
+    var texto = [
+      '⚠️ Web MT Catering: una cotización NO llegó al correo.',
+      'Motivo: ' + (limite ? 'se llegó al límite de envíos de Web3Forms (' + motivo + ')' : (motivo || 'error desconocido')),
+      '',
+      'Datos del cliente:',
+      '• Empresa: ' + (d.empresa || '-'),
+      '• Nombre: ' + (d.nombre || '-'),
+      '• Teléfono: ' + (d.telefono || '-'),
+      '• Correo: ' + (d.correo || '-'),
+      '• Servicio: ' + (d.servicio || '-') + ' · ' + d.frecuencia,
+      '• Inicio: ' + (d.fecha || 'por definir') + (d.horario ? ' (' + d.horario + ')' : ''),
+      '• Personas: ' + d.personas + ' · Sede: ' + (d.sede || 'por definir'),
+      '• Modalidad: ' + (d.modalidad || '-') + ' · Extras: ' + (d.extras || 'ninguno')
+    ];
+    if (d.mensaje) texto.push('• Nota: ' + d.mensaje);
+    var url = 'https://api.callmebot.com/whatsapp.php?phone=%2B' + num +
+      '&text=' + encodeURIComponent(texto.join('\n')) + '&apikey=' + encodeURIComponent(key);
+    try { fetch(url, { mode: 'no-cors', keepalive: true }); } catch (e) { new Image().src = url; }
+  }
+
   /* ---------- Envío ---------- */
   var cuenta = null;
   form.addEventListener('submit', function (e) {
@@ -219,7 +245,6 @@
     if ($('f-botcheck').checked) return; // robot
 
     var d = datos();
-    var wa = window.MT_waLink(mensajeWhatsApp(d));
     btnEnviar.disabled = true;
     btnEnviar.firstChild.textContent = 'Enviando… ';
 
@@ -250,10 +275,15 @@
             'Teléfono / WhatsApp': d.telefono,
             'Mensaje': d.mensaje || '—'
           })
-        }).then(function (r) { return r.json(); }).then(function (j) { return !!(j && j.success); }).catch(function () { return false; })
-      : Promise.resolve(false);
+        }).then(function (r) { return r.json(); })
+          .then(function (j) { return { ok: !!(j && j.success), motivo: (j && !j.success && j.message) || '' }; })
+          .catch(function () { return { ok: false, motivo: 'No hubo conexión con Web3Forms' }; })
+      : Promise.resolve({ ok: false, motivo: 'Falta la clave de Web3Forms en config.js' });
 
-    envio.then(function (ok) {
+    envio.then(function (res) {
+      var ok = res.ok;
+      if (!ok) avisarEmpresa(d, res.motivo);
+      var wa = window.MT_waLink((ok ? '' : '⚠️ (Esta solicitud no llegó al correo de la empresa.)\n') + mensajeWhatsApp(d));
       form.hidden = true;
       $('progreso-wrap').hidden = true;
       $('listo-nombre').textContent = (d.nombre.split(' ')[0] || '') + '.';
